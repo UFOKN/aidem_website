@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# script/format: Format all files with Prettier. Pass paths to format only
+#                those, e.g. script/format src/pages/index.astro
+
+set -e
+
+cd "$(dirname "$0")/.."
+
+# ensure everything in the app is up to date.
+script/update
+
+if [ $# -eq 0 ]; then
+  npx prettier --write .
+else
+  npx prettier --write "$@"
+fi

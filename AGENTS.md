@@ -6,20 +6,32 @@ The site started as a copy of the data2action.tech site. Pages, copy, images and
 
 ## Commands
 
-Requires Node 22.12 or newer.
+Requires Node 22.12 or newer. Run everything through the scripts in `script/`, not `npm`, `npx` or `astro` directly. Each script installs dependencies first.
 
-| Command                       | What it does                                   |
-| :---------------------------- | :--------------------------------------------- |
-| `npm install`                 | Install dependencies                           |
-| `npm run dev`                 | Dev server at http://localhost:4321            |
-| `npm run build`               | Production build to `dist/`                    |
-| `npm run preview`             | Serve the production build locally             |
-| `npm run check`               | Type-check `.astro`, `.svelte` and `.ts` files |
-| `npx prettier --write <path>` | Format files (Svelte plugin configured)        |
+| Command                 | What it does                                                    |
+| :---------------------- | :-------------------------------------------------------------- |
+| `script/update`         | Install dependencies                                            |
+| `script/server`         | Dev server at http://localhost:4321 (also on the local network) |
+| `script/build`          | Production build to `dist/`                                     |
+| `script/preview`        | Serve the production build locally                              |
+| `script/lint`           | Type-check `.astro`, `.svelte` and `.ts` files (`astro check`)  |
+| `script/format [paths]` | Format with Prettier; all files when no paths are given         |
 
-`script/server`, `script/build` and `script/preview` run `npm install` first and then the matching command.
+`script/lint` currently reports 10 type errors in the inline script of `src/components/Navigation.astro`. They come from the original site and don't block the build.
 
-`npm run check` currently reports 10 type errors in the inline script of `src/components/Navigation.astro`. They come from the original site and don't block the build.
+## Checking your work
+
+Run `script/format` on changed files, then `script/build`. `script/lint` should report no errors beyond the 10 above.
+
+For visual changes, look at the page in a browser. `.claude/launch.json` defines `aidem-dev`, which starts `script/server` on port 4321 for the Claude Code browser preview. Other agents can run `script/server` and open http://localhost:4321.
+
+## Docs
+
+Astro 7, Tailwind CSS 4 and Svelte 5 are recent, and older APIs often show up in suggestions. Check the current docs before writing framework code:
+
+- Astro: the `astro-docs` MCP server in `.mcp.json` (https://mcp.docs.astro.build/mcp) searches the official Astro docs. Fall back to https://docs.astro.build.
+- Tailwind CSS 4: https://tailwindcss.com/docs. Configuration lives in CSS (`@theme`, `@utility`), not `tailwind.config.js`.
+- Svelte 5: https://svelte.dev/docs/svelte. Components use runes (`$state`, `$props`).
 
 ## Folder layout
 
@@ -33,7 +45,7 @@ src/
     content-images/ Page images, processed by astro:assets
     icons/          SVG icons
 public/             Files served as-is (favicon, fonts)
-script/             Shell wrappers for install, dev, build, preview
+script/             Shell scripts for install, dev, build, preview, lint, format
 documentation/      Font license
 ```
 
@@ -48,4 +60,4 @@ documentation/      Font license
 - Redirects live in `astro.config.mjs`, which also sets `site` for the sitemap.
 - The contact form uses Netlify Forms (`data-netlify` attribute), so it only submits on a Netlify deploy.
 - Email addresses go through `ObfuscatedEmail` from `astro-obfuscate`, not plain `mailto:` links.
-- Format with Prettier before committing.
+- Format with `script/format` before committing. `.prettierrc` loads the Astro and Svelte plugins.
