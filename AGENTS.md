@@ -8,14 +8,14 @@ The site started as a copy of the data2action.tech site. Pages, copy, images and
 
 Requires Node 22.12 or newer.
 
-| Command                       | What it does                                     |
-| :---------------------------- | :----------------------------------------------- |
-| `npm install`                 | Install dependencies                             |
-| `npm run dev`                 | Dev server at http://localhost:4321              |
-| `npm run build`               | Production build to `dist/`                      |
-| `npm run preview`             | Serve the production build locally               |
-| `npm run check`               | Type-check `.astro`, `.svelte` and `.ts` files   |
-| `npx prettier --write <path>` | Format files (Astro and Svelte plugins included) |
+| Command                       | What it does                                   |
+| :---------------------------- | :--------------------------------------------- |
+| `npm install`                 | Install dependencies                           |
+| `npm run dev`                 | Dev server at http://localhost:4321            |
+| `npm run build`               | Production build to `dist/`                    |
+| `npm run preview`             | Serve the production build locally             |
+| `npm run check`               | Type-check `.astro`, `.svelte` and `.ts` files |
+| `npx prettier --write <path>` | Format files (Svelte plugin configured)        |
 
 `script/server`, `script/build` and `script/preview` run `npm install` first and then the matching command.
 
