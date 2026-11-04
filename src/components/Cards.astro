@@ -1,0 +1,26 @@
+---
+import Card from "./Card.astro";
+const { items, cardStyle } = Astro.props;
+---
+
+<ul>
+  {
+    items.map((item) => (
+      <Card
+        title={item.title}
+        description={item.description}
+        link={item.link}
+        image={item.image}
+        style={cardStyle}
+      />
+    ))
+  }
+</ul>
+
+<style>
+  @reference "../styles/global.css";
+
+  ul {
+    @apply grid-area-main grid grid-cols-1 md:grid-cols-2 gap-10 auto-rows-fr;
+  }
+</style>

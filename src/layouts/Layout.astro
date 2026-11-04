@@ -1,0 +1,97 @@
+---
+import { Head } from "astro-capo";
+import { SEO } from "astro-seo";
+import { getImage } from "astro:assets";
+import FloodRiskImage from "../assets/content-images/flood-risk-card.jpg";
+import Navigation from "../components/Navigation.astro";
+import UseOurData from "../components/UseOurData.astro";
+import CallToAction from "../components/CallToAction.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+
+const {
+  title,
+  description,
+  ogImage = FloodRiskImage,
+  showUseOurData = true,
+} = Astro.props;
+
+// Generate absolute image URL for Open Graph meta tag (shown when sharing on social media)
+const ogImageUrl = new URL(
+  (await getImage({ src: ogImage, format: "png", width: 1200 })).src,
+  Astro.url,
+).href;
+---
+
+<!doctype html>
+<html lang="en" transition:animate="initial">
+  <Head>
+    <SEO
+      title={title}
+      titleTemplate="%s | Data2Action Inc."
+      titleDefault="Data2Action Inc"
+      description={description}
+      openGraph={{
+        basic: {
+          title: `${title} | Data2Action Inc.`,
+          type: "website",
+          image: ogImageUrl,
+        },
+      }}
+    />
+    <slot name="head" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta charset="UTF-8" />
+    <meta name="generator" content={Astro.generator} />
+  </Head>
+  <body>
+    <div id="page">
+      <Navigation />
+      <slot />
+      {showUseOurData && <UseOurData />}
+      {
+        showUseOurData && (
+          <CallToAction prevSibling="#use-our-data" nextSibling="footer" />
+        )
+      }
+      <Footer />
+    </div>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-H36HKBKHGH"
+      is:inline></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-H36HKBKHGH");
+    </script>
+  </body>
+</html>
+
+<style>
+  @reference "../styles/global.css";
+
+  html,
+  body {
+    margin: 0;
+    @apply antialiased;
+    scroll-behavior: smooth;
+  }
+
+  #page {
+    @apply grid auto-rows-auto w-full [--space:calc(var(--spacing)*5)] md:[--space:calc(var(--spacing)*10)] min-h-[100vh];
+
+    grid-template-columns:
+      [full-start] var(--space)
+      [main-start] var(--space)
+      [text-start] auto
+      [text-end] var(--space)
+      [main-end] var(--space)
+      [full-end];
+  }
+</style>

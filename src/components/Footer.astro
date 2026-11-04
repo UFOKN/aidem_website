@@ -1,0 +1,59 @@
+---
+import Logo from "../assets/d2a-logo.svg";
+---
+
+<footer>
+  <div class="grid-area-text flex flex-col items-start gap-5 mt-16">
+    <Logo class="h-6 w-auto" />
+    <span class="text-[#D6E3FF]">
+      Delivering Flood Impact Information to Anyone, Anytime, Anywhere™
+    </span>
+  </div>
+  <div id="nav">
+    <dl>
+      <dt>Data Products</dt>
+      <dd><a href="/products/flood-risk">Real-Time Flood Risk</a></dd>
+      <dd><a href="/products/water-energy-nexus">Water-Energy Nexus</a></dd>
+    </dl>
+    <dl>
+      <dt>Solutions</dt>
+      <dd><a href="/solutions/government">Government</a></dd>
+      <dd><a href="/solutions/business">Business</a></dd>
+    </dl>
+    <dl>
+      <dt>Company</dt>
+      <dd><a href="/company">About Us</a></dd>
+      <dd><a href="/contact">Contact</a></dd>
+    </dl>
+  </div>
+  <p
+    class="grid-area-text text-[#C9DCFF] text-xs py-4 border-t-1 border-[#4b7fe0]"
+  >
+    © 2025 Data2Action Inc. All rights reserved.
+  </p>
+
+  <style>
+    @reference "../styles/global.css";
+
+    footer {
+      @apply grid-area-full gap-y-14 grid grid-cols-subgrid text-white;
+      background-color: #1056d7;
+    }
+
+    #nav {
+      @apply grid-area-text grid grid-cols-1 md:grid-cols-3 gap-10;
+    }
+
+    dl {
+      @apply flex flex-col gap-2;
+    }
+
+    dt {
+      @apply text-[#D6E3FF] text-sm uppercase tracking-wider;
+    }
+
+    dd a {
+      @apply py-2 h-auto;
+    }
+  </style>
+</footer>

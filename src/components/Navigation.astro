@@ -1,0 +1,122 @@
+---
+import Logo from "../assets/d2a-logo.svg";
+import LogoShort from "../assets/d2a-logo-short.svg";
+import MenuDesktop from "./MenuDesktop.astro";
+import MenuMobile from "./MenuMobile.astro";
+---
+
+<header>
+  <nav>
+    <h1>
+      <a href="/" id="logo" aria-label="Data2Action Homepage">
+        <Logo class="h-6 w-auto hidden md:inline text-black" />
+        <LogoShort class="h-6 w-auto md:hidden text-black mt-2" />
+      </a>
+    </h1>
+    <div class="hidden md:contents">
+      <MenuDesktop />
+    </div>
+    <div class="contents md:hidden">
+      <MenuMobile />
+    </div>
+  </nav>
+</header>
+
+<style>
+  @reference "../styles/global.css";
+
+  header {
+    @apply absolute pt-5 px-6 w-full z-10;
+  }
+
+  nav {
+    @apply grid grid-cols-[max-content_auto_max-content] items-center;
+  }
+
+  #logo {
+    @apply flex flex-col justify-center hover:scale-102 transition-transform hover:opacity-100 z-11;
+  }
+
+  h1 {
+    display: contents;
+  }
+</style>
+
+<script>
+  const menuItems = document.querySelectorAll(".submenu");
+  let expandedItem = null;
+
+  const toggleSubMenu = (item, open, focus = true) => {
+    const subMenu = item.querySelector("ul");
+    const button = item.querySelector("button");
+    expandedItem = open ? item : null;
+
+    subMenu.setAttribute("aria-hidden", !open);
+    button.setAttribute("aria-expanded", open);
+    item.dataset.expanded = open;
+    // expand
+    if (!focus) return;
+    if (open) {
+      subMenu.querySelectorAll("a")[0].focus(); // Focus on the first link in the submenu
+    } else {
+      button.focus(); // Focus back on the button
+    }
+  };
+
+  menuItems.forEach((item) => {
+    const button = item.querySelector("button");
+
+    button.addEventListener("click", () => {
+      toggleSubMenu(item, button.ariaExpanded === "false");
+    });
+
+    item.addEventListener("mouseenter", () => toggleSubMenu(item, true, false));
+
+    item.addEventListener("mouseleave", () =>
+      toggleSubMenu(item, false, false)
+    );
+
+    // Handling keyboard navigation
+    button.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        // Space or Enter key
+        event.preventDefault(); // Prevent the default action to stop scrolling when pressing Space
+        toggleSubMenu(item, button.ariaExpanded === "false");
+      }
+    });
+
+    // Handling tab key inside submenu to loop back to the button
+    // const subMenuLinks = item.querySelectorAll("ul a");
+    // if (subMenuLinks.length) {
+    //   const lastLink = subMenuLinks[subMenuLinks.length - 1];
+    //   lastLink.addEventListener("keydown", (event) => {
+    //     if (event.key === "Tab" && !event.shiftKey) {
+    //       event.preventDefault();
+    //       button.focus(); // Move focus back to the button
+    //     }
+    //   });
+    // }
+  });
+  document.addEventListener("keydown", (event) => {
+    if (!expandedItem) return;
+    if (event.key == "Escape") {
+      return toggleSubMenu(expandedItem, false);
+    }
+    if (event.key === "Tab") {
+      const subMenu = expandedItem.querySelector("ul");
+      const focusedElement = expandedItem.querySelector(":focus");
+      const firstFocusableElement = expandedItem.querySelector("a");
+      const lastFocusableElement = subMenu.lastElementChild.querySelector("a");
+
+      if (!event.shiftKey && focusedElement === lastFocusableElement) {
+        toggleSubMenu(expandedItem, false);
+        return;
+      }
+
+      if (event.shiftKey && focusedElement === firstFocusableElement) {
+        toggleSubMenu(expandedItem, false);
+        return;
+      }
+    }
+  });
+</script>

@@ -1,0 +1,52 @@
+---
+const { x, y, color = "blue", radius = 200, delay = 0 } = Astro.props;
+const position = `left: ${x}%; top: ${y}%;`;
+const initialDelay = 2000;
+const styles = `--radius: ${radius}%; --color: ${color}; --delay: ${initialDelay + delay}ms;`;
+---
+
+<div class=`label-container` style={position + styles}>
+  <div class="circle"></div>
+</div>
+
+<style>
+  @reference "../styles/global.css";
+
+  .label-container {
+    @apply z-3 absolute w-10 h-10 flex flex-col gap-2 items-center;
+  }
+
+  .circle {
+    @apply w-full h-full rounded-full shrink-0 absolute;
+    /* left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] */
+
+    &:before {
+      @apply rounded-full relative block aspect-square content-[""];
+      width: var(--radius);
+      margin-left: calc(50% - 0.5 * var(--radius));
+      margin-top: calc(50% - 0.5 * var(--radius));
+      animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+      animation-delay: var(--delay);
+      background: radial-gradient(
+        circle at center,
+        transparent 20%,
+        var(--color) 100%
+      );
+      border: 1px solid black;
+      opacity: 0;
+    }
+  }
+
+  @keyframes pulse-ring {
+    0% {
+      transform: scale(0.33);
+    }
+    1% {
+      opacity: 1;
+    }
+    90%,
+    100% {
+      opacity: 0.4;
+    }
+  }
+</style>

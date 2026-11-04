@@ -1,0 +1,95 @@
+---
+import { Picture } from "astro:assets";
+import Layout from "../../layouts/Layout.astro";
+import CallToAction from "../../components/CallToAction.astro";
+import FloodForecastFeatures from "../../components/FloodForecastFeatures.astro";
+import Section from "../../components/Section.astro";
+import Cards from "../../components/Cards.astro";
+import Solutions from "../../components/Solutions.astro";
+import HeaderImage from "../../assets/content-images/flood-risk-header.png";
+import CtaImage from "../../assets/content-images/flood-risk-cta.png";
+
+const useCases = [
+  {
+    title: "Forecast flooding in real time",
+    description: "Every hour, at high resolution, across continental U.S.",
+  },
+  {
+    title: "Assess total economic impact of flooding on cities",
+    description:
+      "Total economic impact includes disruptions to functions and services in multiple sectors.",
+  },
+  {
+    title: "Track how flood risk has changed over time",
+    description: "Flood risk data since Oct 2022",
+  },
+  {
+    title: "Inform land use and investment decisions",
+    description: "Estimate flood risk to future projects",
+  },
+];
+---
+
+<Layout
+  title="Real-Time Flood Forecasts"
+  description="From live forecasts to long-term impacts, get flood insights that guide response, planning, and investment."
+  ogImage={HeaderImage}
+>
+  <section id="header">
+    <div>
+      <h2>Real-Time Flood Forecasts</h2>
+      <p>
+        From live forecasts to long-term impacts, get flood insights that guide
+        response, planning, and investment.
+      </p>
+    </div>
+    <Picture
+      src={HeaderImage}
+      alt="Map of the continental United States showing counties with elevated flood risk."
+      priority
+    />
+  </section>
+  <CallToAction
+    text="Try the demo"
+    description="Our data is available via API or bespoke solutions. Try our interactive flood risk forecast."
+    label="Launch demo"
+    prevSibling="#header"
+    nextSibling="#features"
+    href="https://flooding.data2action.tech"
+    image={CtaImage}
+    imageAlt="Screenshot of a web application showing flood risk in the US. A detail panel shows how many structures are at risk in the selected county, and how risk is going to change over the next 16 hours."
+  />
+  <FloodForecastFeatures />
+  <Section
+    title="Use Cases"
+    style="bg-[#FDEBDE] dot-grid [--dot-grid-color:#D7C8BD]"
+  >
+    <Cards items={useCases} cardStyle="!bg-white" />
+  </Section>
+  <Solutions />
+</Layout>
+
+<style>
+  @reference "../../styles/global.css";
+
+  #header {
+    @apply grid-area-full bg-[#D4E3EB] grid grid-cols-subgrid relative overflow-hidden;
+
+    div {
+      @apply grid-area-text mt-[120px] mb-25 md:mb-50 flex flex-col gap-5 items-center z-2;
+    }
+    h2 {
+      @apply text-center;
+    }
+    p {
+      @apply text-black text-xl text-center text-balance opacity-70 max-w-[50ch];
+    }
+    picture {
+      @apply w-full h-full absolute top-0 left-0 z-1 object-cover max-md:aspect-square;
+
+      img {
+        @apply h-full object-cover;
+      }
+    }
+  }
+</style>

@@ -1,0 +1,78 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import OurTechnology from "../components/OurTechnology.svelte";
+---
+
+<Layout
+  showUseOurData={false}
+  title="Who We Are"
+  description="Data2Action is a data as a product company that provides meaningful and actionable information about impacts of flooding across the country in real time and for long-term planning."
+>
+  <PageHeader title="About Data2Action" />
+  <div id="blockquote">
+    <p>
+      Data2Action is a data as a product company that provides meaningful and
+      actionable information about impacts of flooding across the country in
+      real time and for long-term planning.
+    </p>
+  </div>
+  <section id="history" class="!gap-5 md:gap-10">
+    <h3>Our Story</h3>
+    <div>
+      <p>
+        Data2Action is a University of Cincinnati spinoff supported by the
+        National Science Foundation’s Convergence Accelerator and Proto-OKN
+        programs.
+      </p>
+      <p>
+        We bring to market products developed in decades of our research in
+        water and energy resources, data and systems science, AI, infrastructure
+        resilience, environmental engineering, policy, and user-centered design.
+      </p>
+    </div>
+  </section>
+  <OurTechnology client:visible />
+  <section id="investors-careers">
+    <div class="mb-10 md:mb-0">
+      <h3>Investors</h3>
+      <!-- <p>[needs description]</p> -->
+      <a href="/contact">Get in touch</a>
+    </div>
+    <div>
+      <h3>Work with us</h3>
+      <!-- <p>[needs description]</p> -->
+      <a href="/contact">Get in touch</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  @reference "../styles/global.css";
+
+  #blockquote {
+    @apply grid-area-full bg-[#E6EBF0] dot-grid [--dot-grid-color:#C4C8CC] grid grid-cols-subgrid py-9 md:py-18;
+    p {
+      @apply grid-area-text text-xl md:text-[2.125rem];
+    }
+  }
+
+  section {
+    @apply grid-area-text grid grid-cols-1 gap-10 md:grid-cols-2 py-20;
+
+    div {
+      @apply flex flex-col gap-4;
+    }
+
+    h3 {
+      grid-area: initial;
+    }
+
+    p {
+      @apply text-lg opacity-65;
+    }
+  }
+
+  #investors-careers {
+  }
+</style>

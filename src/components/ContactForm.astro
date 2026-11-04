@@ -1,0 +1,69 @@
+<form
+  name="contact"
+  method="POST"
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+>
+  <label>
+    Name
+    <input type="text" name="name" required placeholder="Your name" />
+  </label>
+  <label>
+    Organization
+    <input type="text" name="organization" placeholder="Your organization" />
+  </label>
+  <label>
+    Email
+    <input type="email" name="email" required placeholder="Your email" />
+  </label>
+  <label class="hidden" id="pot">
+    No need to fill this out if you are human: <input
+      name="bot-field"
+      type="text"
+    />
+  </label>
+  <label>
+    How can we help?
+    <textarea
+      name="message"
+      placeholder="Your message"
+      required
+      maxlength="1500"></textarea>
+  </label>
+  <button>Submit</button>
+</form>
+
+<style>
+  @reference "../styles/global.css";
+
+  form {
+    @apply flex flex-col justify-stretch gap-6;
+  }
+
+  label {
+    @apply flex flex-col gap-1.5 text-sm;
+  }
+
+  input,
+  textarea {
+    @apply border-1 border-[#D0D0D0] p-2 text-base bg-white;
+
+    &:user-invalid {
+      @apply border-[#D37000] bg-[#FFF3E4];
+    }
+
+    &::placeholder {
+      @apply text-[#969393];
+    }
+  }
+
+  button {
+    @apply bg-black text-white uppercase tracking-wide w-full md:w-auto whitespace-nowrap p-2 font-[500] border-1 border-black;
+  }
+
+  #pot {
+    @apply hidden;
+  }
+</style>
+
+<script></script>

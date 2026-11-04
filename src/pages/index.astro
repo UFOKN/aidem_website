@@ -1,0 +1,137 @@
+---
+import Layout from "../layouts/Layout.astro";
+import CallToAction from "../components/CallToAction.astro";
+import Products from "../components/Products.astro";
+import Solutions from "../components/Solutions.astro";
+import HomepageHeader from "../components/HomepageHeader.astro";
+import FloodForecastFeatures from "../components/FloodForecastFeatures.astro";
+import OurTechnology from "../components/OurTechnology.svelte";
+
+// src/layouts/Layout.astro or your page component
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Data2Action Inc.",
+  "alternateName": "Data2Action",
+  "url": "https://data2action.tech/",
+  "description": "We combine real-time flood forecasts with local data to deliver location-specific risk insights. Delivering Flood Impact Information to Anyone, Anytime, Anywhere.",
+  "slogan": "Where flooding strikes, disruptions follow. We predict both.",
+  "foundingDate": "2025",
+  "industry": "Data Analytics, Environmental Technology, Flood Forecasting",
+  "keywords": "flood forecasting, real-time flood risk, water-energy nexus, urban flooding, flood impact prediction, cascading disruptions, flood data",
+  "areaServed": {
+    "@type": "Country",
+    "name": "United States"
+  },
+  "knowsAbout": [
+    "Flood Risk Forecasting",
+    "Urban Infrastructure Analysis",
+    "Water-Energy Nexus",
+    "Environmental Data Analytics",
+    "Cascading Disruption Modeling"
+  ],
+  "makesOffer": [
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Real-Time Flood Risk Forecasts",
+        "description": "Real-time, fast, accurate flood forecasts at neighborhood-level resolution for the continental U.S. 16-hour forecasts updated hourly with historical data since October 2022.",
+        "serviceType": "Data Product",
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        }
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Water-Energy Nexus",
+        "description": "Next-generation data infrastructure that connects water and energy data to answer questions at their nexus.",
+        "serviceType": "Data Product"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "API Access",
+        "description": "Query our data programmatically through APIs",
+        "serviceType": "Software Service"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "LLM Integration",
+        "description": "Access data using natural language queries",
+        "serviceType": "Software Service"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Bespoke Solutions",
+        "description": "Custom software tailored to your specific needs",
+        "serviceType": "Software Development"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Enterprise Data Management",
+        "description": "Integration of your data to drive organizational success",
+        "serviceType": "Data Management"
+      }
+    }
+  ],
+  "potentialAction": {
+    "@type": "ContactAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://data2action.tech/contact",
+      "actionPlatform": [
+        "http://schema.org/DesktopWebPlatform",
+        "http://schema.org/MobileWebPlatform"
+      ]
+    }
+  },
+  "audience": [
+    {
+      "@type": "Audience",
+      "audienceType": "Government Agencies",
+      "description": "Government organizations requiring flood risk and infrastructure disruption forecasting"
+    },
+    {
+      "@type": "Audience",
+      "audienceType": "Business",
+      "description": "Businesses needing flood risk assessment and impact prediction for operations"
+    }
+  ]
+};
+---
+
+<Layout
+  title="Where flooding strikes, disruptions follow. We predict both."
+  description="We combine real-time flood forecasts with local data to deliver location-specific risk insights."
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
+  </Fragment>
+  <HomepageHeader />
+  <CallToAction
+    text="We combine real-time flood forecasts with local data to deliver location-specific risk insights."
+    label="Schedule a demo"
+    prevSibling="#header"
+    nextSibling="#features"
+  />
+  <FloodForecastFeatures />
+  <Products />
+  <Solutions />
+  <OurTechnology client:visible />
+</Layout>

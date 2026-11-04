@@ -1,0 +1,20 @@
+---
+const { style, title, id } = Astro.props;
+---
+
+<section class={style} id={id}>
+  {title && <h3>{title}</h3>}
+  <slot />
+</section>
+
+<style>
+  @reference "../styles/global.css";
+
+  section {
+    @apply grid grid-cols-subgrid grid-flow-col gap-y-10 grid-area-full py-20;
+  }
+
+  section.spacer-top h3 {
+    @apply mt-18;
+  }
+</style>

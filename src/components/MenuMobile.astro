@@ -1,0 +1,97 @@
+---
+import Logo from "../assets/d2a-logo.svg";
+import BarsIcon from "../assets/icons/bars.svg";
+---
+
+<ul id="menu-ul">
+  <li data-expanded="false" class="submenu">
+    <button aria-label="Submenu of Data Products" aria-expanded="false">
+      <BarsIcon />
+    </button>
+    <ul>
+      <li>
+        <Logo class="h-6 w-auto inline text-black" />
+      </li>
+      <li class="mt-5">
+        <a href="/">Homepage</a>
+      </li>
+      <li>
+        <span class="menu-category">Data Products</span>
+        <ul>
+          <li>
+            <a href="/products/flood-risk">Real-Time Flood Risk Forecasts</a>
+          </li>
+          <li>
+            <a href="/products/water-energy-nexus">Water-Energy Nexus</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <span class="menu-category">Solutions</span>
+        <ul>
+          <li>
+            <a href="/solutions/government">Government</a>
+          </li>
+          <li>
+            <a href="/solutions/business">Businesses</a>
+          </li>
+        </ul>
+      </li>
+      <li><a href="/company">Company</a></li>
+      <li><a href="/contact">Get in touch</a></li>
+    </ul>
+  </li>
+</ul>
+
+<style>
+  @reference "../styles/global.css";
+
+  #menu-ul {
+    @apply z-13 absolute left-0 top-0 w-full flex justify-end pointer-events-none;
+
+    /* Background behind expanded menu */
+    &:has(li[data-expanded="true"]) {
+      &::before {
+        @apply content-[""] fixed bg-black/60 top-0 left-0 right-0 h-[100dvh];
+      }
+    }
+  }
+
+  svg {
+    @apply flex flex-col justify-center;
+  }
+
+  button {
+    @apply z-14 relative pointer-events-auto;
+  }
+
+  .submenu {
+    @apply pointer-events-auto px-6 py-2 pt-6;
+
+    /* Hide sub menu by default */
+    &[data-expanded="false"] > ul {
+      @apply !hidden;
+    }
+
+    /* Submenu styles */
+    & > ul {
+      @apply z-13 fixed left-0 top-0 w-[100vw] bg-white flex flex-col gap-8 px-6 pt-7 pb-10;
+    }
+
+    ul {
+      @apply flex flex-col gap-4 py-2;
+    }
+
+    a {
+      @apply text-lg py-2;
+    }
+
+    li {
+      @apply p-0;
+    }
+  }
+
+  .menu-category {
+    @apply block mb-2 uppercase tracking-wider text-[var(--color-text-secondary)];
+  }
+</style>

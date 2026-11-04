@@ -1,0 +1,58 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import PageHeader from "../../components/PageHeader.astro";
+import CallToAction from "../../components/CallToAction.astro";
+import Section from "../../components/Section.astro";
+import Cards from "../../components/Cards.astro";
+import Products from "../../components/Products.astro";
+import HeaderImage from "../../assets/content-images/solutions-govt-header.jpg";
+
+const useCases = [
+  {
+    title: "Emergency Response",
+    description:
+      "Allocate resources and assign priorities in rescue and evacuation operations.",
+  },
+  {
+    title: "Urban Planning",
+    description:
+      "Which areas are at risk of flooding? Where to build a new hospital? Where to develop a new park?",
+  },
+  {
+    title: "Safety of Critical Infrastructure",
+    description:
+      "Assess flood risk to critical infrastructure, anticipate cascading disruptions to power and water services, and design for resilience.",
+  },
+  {
+    title: "Science",
+    description:
+      "Understand how people, environment, and infrastructure are connected, study the complexity of these systems, and evaluate the impacts of stressors like floods.",
+  },
+  {
+    title: "Socioeconomic Impact",
+    description:
+      "Assess total economic impact of flooding on cities, including disruptions to functions and services in multiple sectors.",
+  },
+];
+---
+
+<Layout
+  title="Solutions for Government"
+  description="We’ll connect our framework to your data and build decision-support tools that meet your needs."
+  ogImage={HeaderImage}
+>
+  <PageHeader
+    title="Solutions for Government"
+    image={HeaderImage}
+    imageAlt="Emergency responders evaluating flood maps in an urban flooding event."
+  />
+  <CallToAction
+    text="We’ll connect our framework to your data and build decision-support tools that meet your needs."
+    prevSibling="#header"
+    nextSibling="#use-cases"
+  />
+  <Section title="Use Cases" id="use-cases" style="spacer-top">
+    <Cards items={useCases} />
+  </Section>
+  <Products />
+</Layout>

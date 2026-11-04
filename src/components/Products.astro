@@ -1,0 +1,32 @@
+---
+import Section from "./Section.astro";
+import Cards from "./Cards.astro";
+
+import FloodRiskImage from "../assets/content-images/flood-risk-card.jpg";
+import WENImage from "../assets/content-images/wen-card.jpg";
+
+const cards = [
+  {
+    title: "Real-Time Flood Risk Forecasts",
+    description:
+      "We provide real-time, fast, accurate flood forecasts, at the resolution you need, in a format you want, for the continental U.S.",
+    link: "/products/flood-risk",
+    image: FloodRiskImage,
+  },
+  {
+    title: "Water-Energy Nexus",
+    description:
+      "Our next-generation data infrastructure connects water and energy data and answers questions at their nexus.",
+    link: "/products/water-energy-nexus",
+    image: WENImage,
+  },
+];
+---
+
+<Section
+  title="Data Products"
+  id="products"
+  style="bg-[#E6EBF0] dot-grid [--dot-grid-color:#C4C8CC]"
+>
+  <Cards items={cards} />
+</Section>

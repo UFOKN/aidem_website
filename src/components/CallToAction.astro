@@ -1,0 +1,94 @@
+---
+import ButtonLink from "./ButtonLink.astro";
+import { Picture } from "astro:assets";
+
+const {
+  prevSibling,
+  nextSibling,
+  description,
+  text = "Delivering Flood Impact Information to Anyone, Anytime, Anywhere™",
+  href = "/contact",
+  label = "Get in touch",
+  image,
+  imageAlt = "",
+} = Astro.props;
+---
+
+<div class="cta-wrapper">
+  <div class="cta">
+    <div class="text">
+      <p>{text}</p>
+      {description && <p class="cta-description">{description}</p>}
+      {image && <ButtonLink href={href} label={label} />}
+    </div>
+    {
+      image ? (
+        <Picture src={image} alt={imageAlt} />
+      ) : (
+        <ButtonLink href={href} label={label} />
+      )
+    }
+  </div>
+</div>
+
+<style>
+  @reference "../styles/global.css";
+
+  .cta-wrapper {
+    @apply grid-area-main h-[0px] overflow-visible z-9 w-full flex items-center;
+  }
+
+  .cta {
+    @apply grid-area-main flex p-5 md:p-10 gap-5 md:gap-10 bg-black w-full flex-col md:flex-row items-center;
+
+    p {
+      @apply text-white text-lg md:text-preset-xl;
+
+      &.cta-description {
+        @apply opacity-70 mb-5;
+      }
+    }
+
+    &:has(img) {
+      @apply pb-0;
+
+      .text {
+        @apply pb-10 flex flex-col justify-stretch items-start self-stretch gap-2 md:gap-5;
+      }
+
+      a {
+        @apply ml-0 mt-auto;
+      }
+    }
+  }
+
+  picture {
+    @apply md:max-w-[60%] self-end;
+  }
+</style>
+
+<script define:vars={{ prevSibling, nextSibling }}>
+  const maxOverlap = 80;
+  // Creates the overlay effect with the previous and next siblings
+  const elements = document.querySelectorAll(".cta-wrapper");
+  function updateMargin() {
+    elements.forEach((el) => {
+      const cta = el.querySelector(".cta");
+      const prevElem = document.querySelector(prevSibling);
+      const nextElem = document.querySelector(nextSibling);
+      const ctaOffset = cta.offsetHeight / 2;
+      const exceedingMax = Math.max(ctaOffset - maxOverlap, 0);
+      el.style.marginTop = `${exceedingMax}px`;
+      el.style.marginBottom = `${exceedingMax * -1}px`;
+      // Not necessary to extend the previous element if it is an image
+      if (prevElem.tagName !== "IMG") {
+        prevElem.style.paddingBottom = `${ctaOffset - exceedingMax}px`;
+      }
+      nextElem.style.paddingTop = `${ctaOffset + exceedingMax}px`;
+    });
+  }
+  window.addEventListener("DOMContentLoaded", () => {
+    updateMargin();
+    window.addEventListener("resize", updateMargin);
+  });
+</script>

@@ -1,0 +1,23 @@
+---
+import Section from "./Section.astro";
+import Cards from "./Cards.astro";
+import SolutionsGovtImage from "../assets/content-images/solutions-govt-card.jpg";
+import SolutionsBusinessImage from "../assets/content-images/solutions-business-card.jpg";
+
+const cards = [
+  {
+    title: "For Government",
+    link: "/solutions/government",
+    image: SolutionsGovtImage,
+  },
+  {
+    title: "For Business",
+    link: "/solutions/business",
+    image: SolutionsBusinessImage,
+  },
+];
+---
+
+<Section title="Solutions" id="solutions">
+  <Cards items={cards} />
+</Section>
