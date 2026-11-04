@@ -39,15 +39,13 @@ const features = [
 
 <Section id="features">
   <ul>
-    {
-      features.map((feature) => (
-        <FeatureCard
-          label={feature.label}
-          description={feature.description}
-          icon={feature.icon}
-        />
-      ))
-    }
+    {features.map((feature) => (
+      <FeatureCard
+        label={feature.label}
+        description={feature.description}
+        icon={feature.icon}
+      />
+    ))}
   </ul>
 </Section>
 

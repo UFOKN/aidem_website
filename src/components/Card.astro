@@ -13,13 +13,11 @@ const titleID = crypto.randomUUID().slice(0, 6);
   <div>
     <h4 id={titleID}>{title}</h4>
     {description && <p>{description}</p>}
-    {
-      link && (
-        <a href={link} aria-describedby={titleID}>
-          Learn more
-        </a>
-      )
-    }
+    {link && (
+      <a href={link} aria-describedby={titleID}>
+        Learn more
+      </a>
+    )}
   </div>
 </li>
 

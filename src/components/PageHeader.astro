@@ -6,18 +6,16 @@ const { title, image, imageAlt } = Astro.props;
 <div>
   <h2>{title}</h2>
 </div>
-{
-  image && (
-    <Picture
-      src={image}
-      alt={imageAlt}
-      id="header"
-      class="grid-area-full object-cover min-h-[300px]"
-      quality={"high"}
-      priority
-    />
-  )
-}
+{image && (
+  <Picture
+    src={image}
+    alt={imageAlt}
+    id="header"
+    class="grid-area-full object-cover min-h-[300px]"
+    quality={"high"}
+    priority
+  />
+)}
 
 <style>
   @reference "../styles/global.css";

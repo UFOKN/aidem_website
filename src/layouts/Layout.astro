@@ -50,11 +50,9 @@ const ogImageUrl = new URL(
       <Navigation />
       <slot />
       {showUseOurData && <UseOurData />}
-      {
-        showUseOurData && (
-          <CallToAction prevSibling="#use-our-data" nextSibling="footer" />
-        )
-      }
+      {showUseOurData && (
+        <CallToAction prevSibling="#use-our-data" nextSibling="footer" />
+      )}
       <Footer />
     </div>
   </body>

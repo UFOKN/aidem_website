@@ -21,13 +21,11 @@ const {
       {description && <p class="cta-description">{description}</p>}
       {image && <ButtonLink href={href} label={label} />}
     </div>
-    {
-      image ? (
-        <Picture src={image} alt={imageAlt} />
-      ) : (
-        <ButtonLink href={href} label={label} />
-      )
-    }
+    {image ? (
+      <Picture src={image} alt={imageAlt} />
+    ) : (
+      <ButtonLink href={href} label={label} />
+    )}
   </div>
 </div>
 
