@@ -17,11 +17,9 @@ Requires Node 22.12 or newer. Run everything through the scripts in `script/`, n
 | `script/lint`           | Type-check `.astro`, `.svelte` and `.ts` files (`astro check`)  |
 | `script/format [paths]` | Format with Prettier; all files when no paths are given         |
 
-`script/lint` currently reports 10 type errors in the inline script of `src/components/Navigation.astro`. They come from the original site and don't block the build.
-
 ## Checking your work
 
-Run `script/format` on changed files, then `script/build`. `script/lint` should report no errors beyond the 10 above.
+Run `script/format` on changed files, then `script/lint` and `script/build`. Both must pass with no errors.
 
 For visual changes, look at the page in a browser. `.claude/launch.json` defines `aidem-dev`, which starts `script/server` on port 4321 for the Claude Code browser preview. Other agents can run `script/server` and open http://localhost:4321.
 

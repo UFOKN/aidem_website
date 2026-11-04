@@ -1,8 +1,9 @@
 ---
 import Section from "./Section.astro";
 import FeatureCard from "./FeatureCard.astro";
+import type { ComponentProps } from "astro/types";
 
-const features = [
+const features: (ComponentProps<typeof FeatureCard> & { soon?: boolean })[] = [
   {
     label: "Speed",
     description: "Ready in minutes",

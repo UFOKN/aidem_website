@@ -1,5 +1,4 @@
 ---
-const { label, description, icon } = Astro.props;
 import RunnerIcon from "../assets/icons/runner.svg";
 import WaveIcon from "../assets/icons/wave.svg";
 import GridIcon from "../assets/icons/grid.svg";
@@ -16,6 +15,13 @@ const icons = {
   network: NetworkIcon,
 };
 
+interface Props {
+  label: string;
+  description?: string;
+  icon: keyof typeof icons;
+}
+
+const { label, description, icon } = Astro.props;
 const Icon = icons[icon];
 ---
 
