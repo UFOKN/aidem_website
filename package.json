@@ -29,6 +29,7 @@
     "astro-capo": "^0.0.1",
     "astro-seo": "^1.2.0",
     "prettier": "^3.9.10",
+    "prettier-plugin-astro": "^1.1.2",
     "prettier-plugin-svelte": "^4.1.1"
   },
   "overrides": {
