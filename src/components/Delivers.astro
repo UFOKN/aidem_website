@@ -28,9 +28,9 @@ const outcomes = [
 <Section title="What AidEM Delivers" id="delivers" style="spacer-top">
   <p class="intro">
     Floods are becoming more frequent and many U.S. dams are aging. When one
-    fails, the damage spreads: a flooded substation cuts power to a water plant,
-    and the water plant can no longer supply a hospital. AidEM helps agencies
-    see these chains before they happen.
+    fails, the damage spreads: a flooded substation cuts power to a water plant
+    which impacts a hospital far outside the flood zone. AidEM helps agencies
+    see these chains before they happen and plan for mitigation.
   </p>
   <ul>
     {outcomes.map(({ title, description }) => (
@@ -46,7 +46,7 @@ const outcomes = [
   @reference "../styles/global.css";
 
   .intro {
-    @apply grid-area-text text-lg -mt-4;
+    @apply grid-area-text text-lg leading-[1.4] -mt-4;
   }
 
   ul {
