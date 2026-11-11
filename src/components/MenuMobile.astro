@@ -1,44 +1,25 @@
 ---
-import Logo from "../assets/d2a-logo.svg";
+import Wordmark from "./Wordmark.astro";
 import BarsIcon from "../assets/icons/bars.svg";
 ---
 
 <ul id="menu-ul">
   <li data-expanded="false" class="submenu">
-    <button aria-label="Submenu of Data Products" aria-expanded="false">
+    <button aria-label="Menu" aria-expanded="false">
       <BarsIcon />
     </button>
     <ul>
       <li>
-        <Logo class="h-6 w-auto inline text-black" />
+        <Wordmark class="text-black" />
       </li>
       <li class="mt-5">
         <a href="/">Homepage</a>
       </li>
       <li>
-        <span class="menu-category">Data Products</span>
-        <ul>
-          <li>
-            <a href="/products/flood-risk">Real-Time Flood Risk Forecasts</a>
-          </li>
-          <li>
-            <a href="/products/water-energy-nexus">Water-Energy Nexus</a>
-          </li>
-        </ul>
+        <a href="/#solutions">Solutions</a>
       </li>
       <li>
-        <span class="menu-category">Solutions</span>
-        <ul>
-          <li>
-            <a href="/solutions/government">Government</a>
-          </li>
-          <li>
-            <a href="/solutions/business">Businesses</a>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <a href="/company">Company</a>
+        <a href="/team">Team</a>
       </li>
       <li>
         <a href="/contact">Get in touch</a>

@@ -3,32 +3,21 @@ import Section from "./Section.astro";
 import FeatureCard from "./FeatureCard.astro";
 import type { ComponentProps } from "astro/types";
 
-const features: (ComponentProps<typeof FeatureCard> & { soon?: boolean })[] = [
+const features: ComponentProps<typeof FeatureCard>[] = [
   {
     label: "Speed",
     description: "Ready in minutes",
     icon: "runner",
   },
   {
-    label: "Frequency",
-    description: "16-hour forecasts, updated hourly",
-    icon: "wave",
-  },
-  {
     label: "Resolution",
-    description: "Neighborhood-level",
+    description: "Asset-level",
     icon: "grid",
-  },
-  {
-    label: "Past Data",
-    description: "Since Oct 2022",
-    icon: "clock",
   },
   {
     label: "Severity",
     description: "From minor to major",
     icon: "trend",
-    soon: true,
   },
   {
     label: "Impact",
@@ -54,6 +43,6 @@ const features: (ComponentProps<typeof FeatureCard> & { soon?: boolean })[] = [
   @reference "../styles/global.css";
 
   ul {
-    @apply grid-area-main md:grid-area-text mt-20 grid grid-cols-2 md:grid-cols-3 gap-10;
+    @apply grid-area-main md:grid-area-text mt-20 grid grid-cols-2 md:grid-cols-4 gap-10;
   }
 </style>

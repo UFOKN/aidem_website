@@ -4,16 +4,18 @@ import { SEO } from "astro-seo";
 import { getImage } from "astro:assets";
 import FloodRiskImage from "../assets/content-images/flood-risk-card.jpg";
 import Navigation from "../components/Navigation.astro";
-import UseOurData from "../components/UseOurData.astro";
 import CallToAction from "../components/CallToAction.astro";
 import Footer from "../components/Footer.astro";
+import { SITE_NAME } from "../site";
 import "../styles/global.css";
 
 const {
   title,
   description,
   ogImage = FloodRiskImage,
-  showUseOurData = true,
+  // Closing call to action above the footer; pass the selector of the
+  // section before it (used for the overlap effect).
+  callToActionAfter = null,
 } = Astro.props;
 
 // Generate absolute image URL for Open Graph meta tag (shown when sharing on social media)
@@ -28,12 +30,12 @@ const ogImageUrl = new URL(
   <Head>
     <SEO
       title={title}
-      titleTemplate="%s | Data2Action Inc."
-      titleDefault="Data2Action Inc"
+      titleTemplate={`%s | ${SITE_NAME}`}
+      titleDefault={SITE_NAME}
       description={description}
       openGraph={{
         basic: {
-          title: `${title} | Data2Action Inc.`,
+          title: `${title} | ${SITE_NAME}`,
           type: "website",
           image: ogImageUrl,
         },
@@ -49,9 +51,14 @@ const ogImageUrl = new URL(
     <div id="page">
       <Navigation />
       <slot />
-      {showUseOurData && <UseOurData />}
-      {showUseOurData && (
-        <CallToAction prevSibling="#use-our-data" nextSibling="footer" />
+      {callToActionAfter && (
+        <CallToAction
+          text="See the agentic AI decision support system in action."
+          label="Schedule a demo"
+          href="/contact"
+          prevSibling={callToActionAfter}
+          nextSibling="footer"
+        />
       )}
       <Footer />
     </div>

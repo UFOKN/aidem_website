@@ -6,10 +6,10 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://data2action.tech",
+  site: "https://aid-em.org",
   redirects: {
-    "/products": "/#products",
     "/solutions": "/#solutions",
+    "/company": "/team",
   },
 
   vite: {

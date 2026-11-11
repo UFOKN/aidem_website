@@ -1,0 +1,124 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import OurTechnology from "../components/OurTechnology.svelte";
+
+// The first four have portraits (placeholders until photos are added)
+const leads = [
+  {
+    name: "Lilit Yeghiazarian",
+    role: "Project Lead, University of Cincinnati",
+  },
+  {
+    name: "Eric Welch",
+    role: "Engagement Lead, School of Public Affairs, Arizona State University",
+  },
+  {
+    name: "Ilya Zaslavsky",
+    role: "Director, Spatial Information Systems Lab, University of California San Diego",
+  },
+  {
+    name: "Jordan McMaster",
+    role: "Economist / Consequences Specialist, US Army Corps of Engineers",
+  },
+];
+const members = ["Adam", "Susie", "Sadegh", "Kai", "Johnny", "Philipp"];
+---
+
+<Layout
+  title="Team"
+  description="A multidisciplinary team of researchers, engineers, computer scientists and emergency management experts working together to advance AI-driven disaster mitigation."
+>
+  <PageHeader title="Team" />
+  <div id="blockquote">
+    <p>
+      A multidisciplinary team of researchers, engineers, computer scientists
+      and emergency management experts working together to advance AI-driven
+      disaster mitigation.
+    </p>
+    <p>
+      We bring to market products developed in decades of our research in water
+      and energy resources, data and systems science, AI, infrastructure
+      resilience, environmental engineering, policy, and user-centered design.
+    </p>
+  </div>
+  <OurTechnology client:visible />
+  <section id="members">
+    <h3>Team members</h3>
+    <ul>
+      {leads.map((person) => (
+        <li class="lead">
+          <div class="portrait" aria-hidden="true" />
+          <div>
+            <strong>{person.name}</strong>
+            <span>{person.role}</span>
+          </div>
+        </li>
+      ))}
+      {members.map((name) => (
+        <li>
+          <strong>{name}</strong>
+        </li>
+      ))}
+    </ul>
+  </section>
+  <section id="funding">
+    <h3>Funding</h3>
+    <p>
+      We are supported by Google.org and the National Science Foundation’s
+      Convergence Accelerator and Proto-OKN programs.
+    </p>
+  </section>
+</Layout>
+
+<style>
+  @reference "../styles/global.css";
+
+  #blockquote {
+    @apply grid-area-full bg-[#E6EBF0] dot-grid [--dot-grid-color:#C4C8CC] grid grid-cols-subgrid gap-y-8 py-9 md:py-18;
+
+    p {
+      @apply grid-area-text text-xl md:text-[2.125rem];
+    }
+  }
+
+  section {
+    @apply grid-area-text grid grid-cols-1 gap-10 md:grid-cols-2 py-20;
+
+    h3 {
+      grid-area: initial;
+    }
+
+    p {
+      @apply text-lg opacity-65;
+    }
+  }
+
+  #funding {
+    @apply border-t border-[#E6EBF0];
+  }
+
+  ul {
+    @apply flex flex-col gap-6;
+  }
+
+  li {
+    @apply text-lg;
+
+    strong {
+      @apply font-[600];
+    }
+
+    span {
+      @apply block opacity-65;
+    }
+
+    &.lead {
+      @apply flex items-center gap-5;
+    }
+  }
+
+  .portrait {
+    @apply size-20 shrink-0 rounded-full bg-[#E6EBF0];
+  }
+</style>

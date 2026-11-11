@@ -1,40 +1,14 @@
 ---
 import ButtonLink from "./ButtonLink.astro";
-import CaretDownIcon from "../assets/icons/caret-down.svg";
 ---
 
 <div class="flex justify-center">
   <ul id="menu-ul">
-    <li data-expanded="false" class="submenu">
-      <button aria-label="Submenu of Data Products" aria-expanded="false">
-        Data Products
-        <CaretDownIcon />
-      </button>
-      <ul>
-        <li>
-          <a href="/products/flood-risk">Real-Time Flood Risk Forecasts</a>
-        </li>
-        <li>
-          <a href="/products/water-energy-nexus">Water-Energy Nexus</a>
-        </li>
-      </ul>
-    </li>
-    <li data-expanded="false" class="submenu">
-      <button aria-label="Submenu of Data Products" aria-expanded="false">
-        Solutions
-        <CaretDownIcon />
-      </button>
-      <ul>
-        <li>
-          <a href="/solutions/government">Government</a>
-        </li>
-        <li>
-          <a href="/solutions/business">Businesses</a>
-        </li>
-      </ul>
+    <li>
+      <a href="/#solutions">Solutions</a>
     </li>
     <li>
-      <a href="/company">Company</a>
+      <a href="/team">Team</a>
     </li>
   </ul>
 </div>
@@ -56,62 +30,11 @@ import CaretDownIcon from "../assets/icons/caret-down.svg";
     }
   }
 
-  div::before {
-    @apply absolute left-0 top-0 right-0 z-8 block h-80 bg-gradient-to-b from-[#0A131C]/30 to-[#0A131C]/0 transition-opacity;
-    content: " ";
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  div:has(:hover)::before {
-    opacity: 1;
-  }
-
-  button {
-    @apply flex gap-1 items-center font-[450] text-[1.0625rem];
-
-    svg {
-      @apply opacity-50 transition-transform;
-    }
-
-    &[aria-expanded="true"] svg {
-      @apply rotate-180;
-    }
-  }
-
   li {
     @apply hover:bg-white h-full items-center flex transition-all font-[450] text-[1.0625rem];
 
-    /* Hide sub menu by default */
-    &[data-expanded="false"] ul {
-      @apply hidden;
-    }
-
-    a,
-    button {
+    a {
       @apply h-full flex items-center px-3 hover:opacity-100;
-    }
-
-    &.submenu {
-      ul {
-        @apply bg-white absolute top-10 flex flex-col min-w-[10rem];
-      }
-
-      li {
-        @apply h-10 p-0;
-      }
-
-      a {
-        @apply w-full h-10 px-3;
-
-        &:hover {
-          @apply opacity-60;
-        }
-      }
-
-      :focus:not(:focus-visible) {
-        outline: none;
-      }
     }
   }
 </style>

@@ -1,4 +1,4 @@
-# Data2Action Website
+# AidEM Website
 
 ## Project Structure
 
@@ -30,15 +30,4 @@ The site is deployed through Netlify. Commits to the `main` branch are deployed 
 
 ## Typography
 
-The website uses the [Lektorat](https://www.type-together.com/lektorat-font) typeface by TypeTogether.
-
-The D2A logo is set in _Lektorat Variable_.
-
-The website uses _Lektorat Text_ through a dedicaged license exclusive to this website (ie. does not extend to use on other domains or print assets, etc.)
-
-```
-License owner: Lilit Yeghiazarian, Data2Action Inc
-License: Up to 10,000 pageviews / month
-```
-
-See `documentation/TT-EULA_Webfont_2022.pdf` for the general license terms.
+The website uses [Hanken Grotesk](https://fonts.google.com/specimen/Hanken+Grotesk) (SIL Open Font License), installed from npm as `@fontsource-variable/hanken-grotesk`.

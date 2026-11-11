@@ -1,37 +1,38 @@
 ---
-import Logo from "../assets/d2a-logo.svg";
+import Wordmark from "./Wordmark.astro";
+import { PROTOTYPE_URL, TAGLINE } from "../site";
 ---
 
 <footer>
   <div class="grid-area-text flex flex-col items-start gap-5 mt-16">
-    <Logo class="h-6 w-auto" />
-    <span class="text-[#D6E3FF]">
-      Delivering Flood Impact Information to Anyone, Anytime, Anywhere™
-    </span>
+    <Wordmark />
+    <span class="text-[#D6E3FF]">{TAGLINE}</span>
   </div>
   <div id="nav">
     <dl>
-      <dt>Data Products</dt>
+      <dt>AidEM</dt>
       <dd>
-        <a href="/products/flood-risk">Real-Time Flood Risk</a>
+        <a href={PROTOTYPE_URL} target="_blank">
+          Explore AidEM
+        </a>
       </dd>
       <dd>
-        <a href="/products/water-energy-nexus">Water-Energy Nexus</a>
+        <a href="/contact">Schedule a demo</a>
       </dd>
     </dl>
     <dl>
       <dt>Solutions</dt>
       <dd>
-        <a href="/solutions/government">Government</a>
+        <a href="/#solutions">For Government</a>
       </dd>
       <dd>
-        <a href="/solutions/business">Business</a>
+        <a href="/#solutions">For Emergency Managers</a>
       </dd>
     </dl>
     <dl>
-      <dt>Company</dt>
+      <dt>About</dt>
       <dd>
-        <a href="/company">About Us</a>
+        <a href="/team">Team</a>
       </dd>
       <dd>
         <a href="/contact">Contact</a>
@@ -39,7 +40,7 @@ import Logo from "../assets/d2a-logo.svg";
     </dl>
   </div>
   <p class="grid-area-text text-[#C9DCFF] text-xs py-4 border-t-1 border-[#4b7fe0]">
-    © 2025 Data2Action Inc. All rights reserved.
+    © 2026 AidEM. All rights reserved.
   </p>
 
   <style>

@@ -1,6 +1,5 @@
 ---
-import Logo from "../assets/d2a-logo.svg";
-import LogoShort from "../assets/d2a-logo-short.svg";
+import Wordmark from "./Wordmark.astro";
 import MenuDesktop from "./MenuDesktop.astro";
 import MenuMobile from "./MenuMobile.astro";
 ---
@@ -8,9 +7,8 @@ import MenuMobile from "./MenuMobile.astro";
 <header>
   <nav>
     <h1>
-      <a href="/" id="logo" aria-label="Data2Action Homepage">
-        <Logo class="h-6 w-auto hidden md:inline text-black" />
-        <LogoShort class="h-6 w-auto md:hidden text-black mt-2" />
+      <a href="/" id="logo" aria-label="AidEM Homepage">
+        <Wordmark class="text-black max-md:mt-2" />
       </a>
     </h1>
     <div class="hidden md:contents">

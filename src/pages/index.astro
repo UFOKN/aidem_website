@@ -1,130 +1,51 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import CallToAction from "../components/CallToAction.astro";
-import Products from "../components/Products.astro";
-import Solutions from "../components/Solutions.astro";
 import HomepageHeader from "../components/HomepageHeader.astro";
-import FloodForecastFeatures from "../components/FloodForecastFeatures.astro";
-import OurTechnology from "../components/OurTechnology.svelte";
+import Features from "../components/Features.astro";
+import Section from "../components/Section.astro";
+import Cards from "../components/Cards.astro";
+import Solutions from "../components/Solutions.astro";
+import CtaImage from "../assets/content-images/flood-risk-cta.png";
+import { PROTOTYPE_URL, SITE_NAME, TAGLINE } from "../site";
 
-// src/layouts/Layout.astro or your page component
+const statement =
+  "We develop and scale an agentic AI decision support system for flood-triggered compound hazard mitigation.";
+
+const useCases = [
+  {
+    title: "Tabletop exercises",
+    description: "Rehearse the response to cascading failures before a flood.",
+  },
+  {
+    title: "Planning",
+    description:
+      "Anticipate primary, secondary, and tertiary cascading failures before they occur.",
+  },
+  {
+    title: "Real-time response and mitigation",
+    description: "Shape evacuations and reduce the potential for life loss.",
+  },
+];
+
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "Data2Action Inc.",
-  alternateName: "Data2Action",
-  url: "https://data2action.tech/",
-  description:
-    "We combine real-time flood forecasts with local data to deliver location-specific risk insights. Delivering Flood Impact Information to Anyone, Anytime, Anywhere.",
-  slogan: "Where flooding strikes, disruptions follow. We predict both.",
-  foundingDate: "2025",
-  industry: "Data Analytics, Environmental Technology, Flood Forecasting",
-  keywords:
-    "flood forecasting, real-time flood risk, water-energy nexus, urban flooding, flood impact prediction, cascading disruptions, flood data",
-  areaServed: {
-    "@type": "Country",
-    name: "United States",
-  },
-  knowsAbout: [
-    "Flood Risk Forecasting",
-    "Urban Infrastructure Analysis",
-    "Water-Energy Nexus",
-    "Environmental Data Analytics",
-    "Cascading Disruption Modeling",
-  ],
-  makesOffer: [
-    {
-      "@type": "Offer",
-      itemOffered: {
-        "@type": "Service",
-        name: "Real-Time Flood Risk Forecasts",
-        description:
-          "Real-time, fast, accurate flood forecasts at neighborhood-level resolution for the continental U.S. 16-hour forecasts updated hourly with historical data since October 2022.",
-        serviceType: "Data Product",
-        areaServed: {
-          "@type": "Country",
-          name: "United States",
-        },
-      },
-    },
-    {
-      "@type": "Offer",
-      itemOffered: {
-        "@type": "Service",
-        name: "Water-Energy Nexus",
-        description:
-          "Next-generation data infrastructure that connects water and energy data to answer questions at their nexus.",
-        serviceType: "Data Product",
-      },
-    },
-    {
-      "@type": "Offer",
-      itemOffered: {
-        "@type": "Service",
-        name: "API Access",
-        description: "Query our data programmatically through APIs",
-        serviceType: "Software Service",
-      },
-    },
-    {
-      "@type": "Offer",
-      itemOffered: {
-        "@type": "Service",
-        name: "LLM Integration",
-        description: "Access data using natural language queries",
-        serviceType: "Software Service",
-      },
-    },
-    {
-      "@type": "Offer",
-      itemOffered: {
-        "@type": "Service",
-        name: "Bespoke Solutions",
-        description: "Custom software tailored to your specific needs",
-        serviceType: "Software Development",
-      },
-    },
-    {
-      "@type": "Offer",
-      itemOffered: {
-        "@type": "Service",
-        name: "Enterprise Data Management",
-        description: "Integration of your data to drive organizational success",
-        serviceType: "Data Management",
-      },
-    },
-  ],
-  potentialAction: {
-    "@type": "ContactAction",
-    target: {
-      "@type": "EntryPoint",
-      urlTemplate: "https://data2action.tech/contact",
-      actionPlatform: [
-        "http://schema.org/DesktopWebPlatform",
-        "http://schema.org/MobileWebPlatform",
-      ],
-    },
-  },
-  audience: [
-    {
-      "@type": "Audience",
-      audienceType: "Government Agencies",
-      description:
-        "Government organizations requiring flood risk and infrastructure disruption forecasting",
-    },
-    {
-      "@type": "Audience",
-      audienceType: "Business",
-      description:
-        "Businesses needing flood risk assessment and impact prediction for operations",
-    },
+  "@type": "Project",
+  name: SITE_NAME,
+  alternateName: TAGLINE,
+  url: Astro.site?.href,
+  description: statement,
+  funder: [
+    { "@type": "Organization", name: "Google.org" },
+    { "@type": "Organization", name: "National Science Foundation" },
   ],
 };
 ---
 
 <Layout
-  title="Where flooding strikes, disruptions follow. We predict both."
-  description="We combine real-time flood forecasts with local data to deliver location-specific risk insights."
+  title="Where flooding strikes, disruptions follow."
+  description={statement}
+  callToActionAfter="#solutions"
 >
   <Fragment slot="head">
     <script
@@ -135,13 +56,23 @@ const jsonLd = {
   </Fragment>
   <HomepageHeader />
   <CallToAction
-    text="We combine real-time flood forecasts with local data to deliver location-specific risk insights."
+    text={statement}
+    description="Transforming government hazard management from reactive and siloed to proactive and systems-aware."
     label="Schedule a demo"
+    href="/contact"
+    secondaryLabel="Explore AidEM"
+    secondaryHref={PROTOTYPE_URL}
     prevSibling="#header"
     nextSibling="#features"
+    image={CtaImage}
+    imageAlt="Screenshot of a web application showing flood risk in the US. A detail panel shows how many structures are at risk in the selected county, and how risk is going to change over the next 16 hours."
   />
-  <FloodForecastFeatures />
-  <Products />
+  <Features />
+  <Section
+    title="Use Cases"
+    style="bg-[#FDEBDE] dot-grid [--dot-grid-color:#D7C8BD]"
+  >
+    <Cards items={useCases} cardStyle="!bg-white" />
+  </Section>
   <Solutions />
-  <OurTechnology client:visible />
 </Layout>

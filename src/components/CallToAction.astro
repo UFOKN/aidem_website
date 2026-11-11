@@ -9,6 +9,8 @@ const {
   text = "Delivering Flood Impact Information to Anyone, Anytime, Anywhere™",
   href = "/contact",
   label = "Get in touch",
+  secondaryHref,
+  secondaryLabel,
   image,
   imageAlt = "",
 } = Astro.props;
@@ -19,7 +21,14 @@ const {
     <div class="text">
       <p>{text}</p>
       {description && <p class="cta-description">{description}</p>}
-      {image && <ButtonLink href={href} label={label} />}
+      {image && (
+        <div class="buttons">
+          <ButtonLink href={href} label={label} />
+          {secondaryLabel && (
+            <ButtonLink href={secondaryHref} label={secondaryLabel} />
+          )}
+        </div>
+      )}
     </div>
     {image ? (
       <Picture src={image} alt={imageAlt} />
@@ -54,8 +63,12 @@ const {
         @apply pb-10 flex flex-col justify-stretch items-start self-stretch gap-2 md:gap-5;
       }
 
+      .buttons {
+        @apply mt-auto flex flex-col sm:flex-row gap-3 self-stretch sm:self-start;
+      }
+
       a {
-        @apply ml-0 mt-auto;
+        @apply ml-0;
       }
     }
   }
@@ -80,7 +93,10 @@ const {
       el.style.marginBottom = `${exceedingMax * -1}px`;
       // Not necessary to extend the previous element if it is an image
       if (prevElem.tagName !== "IMG") {
-        prevElem.style.paddingBottom = `${ctaOffset - exceedingMax}px`;
+        // Keep the section's own bottom padding and add the overlap to it
+        prevElem.dataset.basePadding ??= getComputedStyle(prevElem).paddingBottom;
+        const basePadding = parseFloat(prevElem.dataset.basePadding) || 0;
+        prevElem.style.paddingBottom = `${basePadding + ctaOffset - exceedingMax}px`;
       }
       nextElem.style.paddingTop = `${ctaOffset + exceedingMax}px`;
     });

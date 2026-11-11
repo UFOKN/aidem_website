@@ -1,12 +1,5 @@
 @import "tailwindcss";
-
-@font-face {
-  font-family: "LektoratText";
-  src: url("/fonts/LektoratText_var.woff2") format("woff2-variations");
-  font-weight: 400 700;
-  font-style: normal;
-  font-display: swap;
-}
+@import "@fontsource-variable/hanken-grotesk";
 
 @theme {
   --text-xs: 0.875rem;
@@ -15,7 +8,7 @@
   --text-xl: 1.5rem;
   --text-2xl: 2.8125rem;
   --text-3xl: 4.0625rem;
-  --font-sans: LektoratText, system-ui, sans-serif;
+  --font-sans: "Hanken Grotesk Variable", system-ui, sans-serif;
 
   --color-text-primary: black;
   --color-text-secondary: #707070;
