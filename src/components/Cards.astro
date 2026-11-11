@@ -6,6 +6,7 @@ interface CardItem {
   title?: string;
   description?: string;
   items?: string[];
+  itemsLabel?: string;
   link?: string;
   image?: ImageMetadata;
 }
@@ -24,6 +25,7 @@ const { items, cardStyle } = Astro.props;
       title={item.title}
       description={item.description}
       items={item.items}
+      itemsLabel={item.itemsLabel}
       link={item.link}
       image={item.image}
       style={cardStyle}

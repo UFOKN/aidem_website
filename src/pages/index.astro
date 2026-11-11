@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import HomepageHeader from "../components/HomepageHeader.astro";
+import MapHeader from "../components/MapHeader.astro";
 import TryTheDemo from "../components/TryTheDemo.astro";
 import Capabilities from "../components/Capabilities.astro";
 import Solutions from "../components/Solutions.astro";
@@ -24,8 +24,8 @@ const jsonLd = {
 ---
 
 <Layout
-  title="Where flooding strikes, disruptions follow."
-  description={statement}
+  title={TAGLINE}
+  description="Transforming government hazard management from reactive and siloed to proactive and systems-aware."
   callToActionAfter="#solutions"
 >
   <Fragment slot="head">
@@ -35,7 +35,10 @@ const jsonLd = {
       set:html={JSON.stringify(jsonLd)}
     />
   </Fragment>
-  <HomepageHeader />
+  <MapHeader
+    title={TAGLINE}
+    text="Transforming government hazard management from reactive and siloed to proactive and systems-aware."
+  />
   <TryTheDemo />
   <Capabilities />
   <Solutions />
