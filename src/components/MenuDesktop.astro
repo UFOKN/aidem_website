@@ -2,33 +2,29 @@
 import ButtonLink from "./ButtonLink.astro";
 ---
 
-<div class="flex justify-center">
-  <ul id="menu-ul">
-    <li>
-      <a href="/team">Team</a>
-    </li>
-  </ul>
-</div>
-<ButtonLink
-  label="Get in touch"
-  href="/contact"
-  showArrow={false}
-  style="!bg-white/45 !backdrop-blur-xs z-11 !h-9 hover:!bg-white"
-/>
+<ul id="menu-ul">
+  <li>
+    <a href="/team">Team</a>
+  </li>
+  <li class="button">
+    <ButtonLink
+      label="Get in touch"
+      href="/contact"
+      showArrow={false}
+      style="!h-9"
+    />
+  </li>
+</ul>
 
 <style>
   @reference "../styles/global.css";
 
   #menu-ul {
-    @apply flex items-center bg-white/45 backdrop-blur-xs h-10 z-10;
-
-    &:has(:hover) > li:not(:hover) {
-      @apply opacity-70 bg-[#D7DEE4];
-    }
+    @apply flex items-center gap-1 bg-white/70 backdrop-blur-xs h-10 py-0.5 pr-0.5 pl-1 z-10;
   }
 
-  li {
-    @apply hover:bg-white h-full items-center flex transition-all font-[450] text-[1.0625rem];
+  li:not(.button) {
+    @apply hover:bg-white h-9 items-center flex transition-all font-[450] text-[1.0625rem];
 
     a {
       @apply h-full flex items-center px-3 hover:opacity-100;
