@@ -16,6 +16,7 @@ const {
   // Closing call to action above the footer; pass the selector of the
   // section before it (used for the overlap effect).
   callToActionAfter = null,
+  callToActionText = "See the agentic AI decision support system in action.",
   callToActionLabel = "Schedule a demo",
   callToActionHref = "/contact",
 } = Astro.props;
@@ -55,7 +56,7 @@ const ogImageUrl = new URL(
       <slot />
       {callToActionAfter && (
         <CallToAction
-          text="See the agentic AI decision support system in action."
+          text={callToActionText}
           label={callToActionLabel}
           href={callToActionHref}
           prevSibling={callToActionAfter}

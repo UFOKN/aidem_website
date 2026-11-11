@@ -5,27 +5,33 @@ const outcomes = [
   {
     title: "Proactive Decision Support",
     description:
-      "Plain-language queries return actionable mission impact timelines, infrastructure failure sequences, and risk assessments before disasters strike.",
+      "Plain-language queries return impact timelines, infrastructure failure sequences and risk assessments before a disaster strikes.",
   },
   {
-    title: "Compound Hazard Modeling",
+    title: "Cascading Failure Analysis",
     description:
-      "Anticipates primary, secondary, and tertiary cascading failures across infrastructure, physical, social, technical, and informational systems.",
+      "Anticipate primary, secondary and tertiary failures as flooding propagates across power, water, transportation and communication systems.",
   },
   {
-    title: "Life Safety & Evacuation",
+    title: "Life Safety and Evacuation",
     description:
-      "Improves the knowledge environment around flooding to shape evacuations and reduce the potential for life loss pre-, during, and post-disaster.",
+      "Clear information on flood extent and impacts to support evacuation decisions and reduce the potential for loss of life before, during and after an event.",
   },
   {
     title: "Resource Optimization",
     description:
-      "Enables agencies to more efficiently distribute recovery resources and understand the full magnitude of the impacted population.",
+      "Quantify populations at risk, so agencies can direct response and recovery resources where they are needed most.",
   },
 ];
 ---
 
 <Section title="What AidEM Delivers" id="delivers" style="spacer-top">
+  <p class="intro">
+    Floods are becoming more frequent and many U.S. dams are aging. When one
+    fails, the damage spreads: a flooded substation cuts power to a water plant,
+    and the water plant can no longer supply a hospital. AidEM helps agencies
+    see these chains before they happen.
+  </p>
   <ul>
     {outcomes.map(({ title, description }) => (
       <li>
@@ -38,6 +44,10 @@ const outcomes = [
 
 <style>
   @reference "../styles/global.css";
+
+  .intro {
+    @apply grid-area-text text-lg -mt-4;
+  }
 
   ul {
     @apply grid-area-main grid grid-cols-1 md:grid-cols-2 gap-10;
