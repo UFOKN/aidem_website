@@ -4,7 +4,6 @@ import MapHeader from "../components/MapHeader.astro";
 import TryTheDemo from "../components/TryTheDemo.astro";
 import Delivers from "../components/Delivers.astro";
 import Capabilities from "../components/Capabilities.astro";
-import Solutions from "../components/Solutions.astro";
 import { SITE_NAME, TAGLINE } from "../site";
 
 const statement =
@@ -27,7 +26,7 @@ const jsonLd = {
 <Layout
   title={TAGLINE}
   description="We transform government response from reactive and siloed to proactive and collaborative."
-  callToActionAfter="#solutions"
+  callToActionAfter="#capabilities"
   callToActionText="Help us shape AidEM: pilot it with your organization or join the team"
   callToActionLabel="Get in touch"
 >
@@ -45,5 +44,4 @@ const jsonLd = {
   <TryTheDemo />
   <Delivers />
   <Capabilities />
-  <Solutions />
 </Layout>
