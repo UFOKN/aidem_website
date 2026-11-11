@@ -9,7 +9,8 @@ export default defineConfig({
   site: "https://aid-em.org",
   redirects: {
     "/solutions": "/#solutions",
-    "/company": "/team",
+    "/company": "/about",
+    "/team": "/about",
   },
 
   vite: {
