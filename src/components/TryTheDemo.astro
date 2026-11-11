@@ -1,0 +1,18 @@
+---
+import CallToAction from "./CallToAction.astro";
+import CtaImage from "../assets/content-images/flood-risk-cta.png";
+import { PROTOTYPE_URL } from "../site";
+
+const { prevSibling = "#header", nextSibling = "#capabilities" } = Astro.props;
+---
+
+<CallToAction
+  text="Try the demo"
+  description="Agentic decision support for flood-triggered compound hazard mitigation"
+  label="Try the demo"
+  href={PROTOTYPE_URL}
+  prevSibling={prevSibling}
+  nextSibling={nextSibling}
+  image={CtaImage}
+  imageAlt="Screenshot of a web application showing flood risk in the US. A detail panel shows how many structures are at risk in the selected county, and how risk is going to change over the next 16 hours."
+/>

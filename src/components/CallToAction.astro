@@ -94,7 +94,8 @@ const {
       // Not necessary to extend the previous element if it is an image
       if (prevElem.tagName !== "IMG") {
         // Keep the section's own bottom padding and add the overlap to it
-        prevElem.dataset.basePadding ??= getComputedStyle(prevElem).paddingBottom;
+        prevElem.dataset.basePadding ??=
+          getComputedStyle(prevElem).paddingBottom;
         const basePadding = parseFloat(prevElem.dataset.basePadding) || 0;
         prevElem.style.paddingBottom = `${basePadding + ctaOffset - exceedingMax}px`;
       }

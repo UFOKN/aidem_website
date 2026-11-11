@@ -36,15 +36,32 @@ const members = ["Adam", "Susie", "Sadegh", "Kai", "Johnny", "Philipp"];
       and emergency management experts working together to advance AI-driven
       disaster mitigation.
     </p>
-    <p>
-      We bring to market products developed in decades of our research in water
-      and energy resources, data and systems science, AI, infrastructure
-      resilience, environmental engineering, policy, and user-centered design.
-    </p>
   </div>
-  <OurTechnology client:visible />
+  <section id="mission">
+    <h3>Our mission</h3>
+    <div>
+      <p>
+        We bring to market products developed in decades of research in water
+        and energy resources, data and systems science, AI, infrastructure
+        resilience, environmental engineering, policy, and user-centered design.
+      </p>
+      <p>
+        AidEM moves government hazard management from reactive and siloed to
+        proactive and aware of how infrastructure, physical, social, technical
+        and informational systems depend on each other. It helps the U.S. Army
+        Corps of Engineers anticipate primary, secondary, and tertiary cascading
+        failures and their impacts before they occur.
+      </p>
+      <p>
+        A better understanding of these impacts helps shape evacuations, reduces
+        the potential for life loss before, during, and after a disaster, and
+        lets agencies direct recovery resources to the people affected by
+        community-wide outages.
+      </p>
+    </div>
+  </section>
   <section id="members">
-    <h3>Team members</h3>
+    <h3>Our team</h3>
     <ul>
       {leads.map((person) => (
         <li class="lead">
@@ -62,12 +79,19 @@ const members = ["Adam", "Susie", "Sadegh", "Kai", "Johnny", "Philipp"];
       ))}
     </ul>
   </section>
-  <section id="funding">
-    <h3>Funding</h3>
-    <p>
-      We are supported by Google.org and the National Science Foundation’s
-      Convergence Accelerator and Proto-OKN programs.
-    </p>
+  <OurTechnology client:visible />
+  <section id="investors-funding">
+    <div>
+      <h3>Investors</h3>
+      <a href="/contact">Get in touch</a>
+    </div>
+    <div>
+      <h3>Funding</h3>
+      <p>
+        We are supported by Google.org and the National Science Foundation’s
+        Convergence Accelerator and Proto-OKN programs.
+      </p>
+    </div>
   </section>
 </Layout>
 
@@ -94,8 +118,13 @@ const members = ["Adam", "Susie", "Sadegh", "Kai", "Johnny", "Philipp"];
     }
   }
 
-  #funding {
+  #members {
     @apply border-t border-[#E6EBF0];
+  }
+
+  #mission div,
+  #investors-funding div {
+    @apply flex flex-col gap-4;
   }
 
   ul {

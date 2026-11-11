@@ -1,0 +1,74 @@
+---
+import Section from "./Section.astro";
+import RunnerIcon from "../assets/icons/runner.svg";
+import GridIcon from "../assets/icons/grid.svg";
+import TrendArrowIcon from "../assets/icons/trend-arrow.svg";
+import NetworkIcon from "../assets/icons/network.svg";
+
+const capabilities = [
+  {
+    title: "Flood-Triggered Hazard Modeling",
+    description:
+      "Physics-informed models that simulate cascading hazard chains initiated by flood events, including landslides, infrastructure failure, and contamination spread.",
+    Icon: RunnerIcon,
+  },
+  {
+    title: "Real-Time Compound Risk Analysis",
+    description:
+      "Simultaneous assessment of co-occurring and sequentially triggered hazards, enabling compound risk quantification at operational timescales.",
+    Icon: GridIcon,
+  },
+  {
+    title: "Agentic AI Decision Support",
+    description:
+      "Deep AI agents synthesize multi-source data streams to generate actionable decision recommendations for government agencies and emergency managers in real time.",
+    Icon: TrendArrowIcon,
+  },
+  {
+    title: "Scalable Emergency Response",
+    description:
+      "Deployable across jurisdictions and hazard contexts, AidEM scales from local emergency operations to regional multi-agency coordination.",
+    Icon: NetworkIcon,
+  },
+];
+---
+
+<Section title="System Capabilities" id="capabilities" style="spacer-top">
+  <p class="intro">
+    The AidEM platform integrates four core technical capabilities into a
+    unified agentic decision support architecture.
+  </p>
+  <ul>
+    {capabilities.map(({ title, description, Icon }) => (
+      <li>
+        <Icon />
+        <h4>{title}</h4>
+        <p>{description}</p>
+      </li>
+    ))}
+  </ul>
+</Section>
+
+<style>
+  @reference "../styles/global.css";
+
+  .intro {
+    @apply grid-area-text text-lg -mt-4;
+  }
+
+  ul {
+    @apply grid-area-main grid grid-cols-1 md:grid-cols-2 gap-10;
+  }
+
+  li {
+    @apply bg-[#E4E9EE] p-5 md:p-10 flex flex-col gap-3;
+  }
+
+  svg {
+    @apply mb-2;
+  }
+
+  h4 {
+    @apply text-lg md:text-xl;
+  }
+</style>

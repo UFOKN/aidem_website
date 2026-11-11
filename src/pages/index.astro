@@ -1,32 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import CallToAction from "../components/CallToAction.astro";
 import HomepageHeader from "../components/HomepageHeader.astro";
-import Features from "../components/Features.astro";
-import Section from "../components/Section.astro";
-import Cards from "../components/Cards.astro";
+import TryTheDemo from "../components/TryTheDemo.astro";
+import Capabilities from "../components/Capabilities.astro";
 import Solutions from "../components/Solutions.astro";
-import CtaImage from "../assets/content-images/flood-risk-cta.png";
-import { PROTOTYPE_URL, SITE_NAME, TAGLINE } from "../site";
+import { SITE_NAME, TAGLINE } from "../site";
 
 const statement =
   "We develop and scale an agentic AI decision support system for flood-triggered compound hazard mitigation.";
-
-const useCases = [
-  {
-    title: "Tabletop exercises",
-    description: "Rehearse the response to cascading failures before a flood.",
-  },
-  {
-    title: "Planning",
-    description:
-      "Anticipate primary, secondary, and tertiary cascading failures before they occur.",
-  },
-  {
-    title: "Real-time response and mitigation",
-    description: "Shape evacuations and reduce the potential for life loss.",
-  },
-];
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -55,24 +36,7 @@ const jsonLd = {
     />
   </Fragment>
   <HomepageHeader />
-  <CallToAction
-    text={statement}
-    description="Transforming government hazard management from reactive and siloed to proactive and systems-aware."
-    label="Schedule a demo"
-    href="/contact"
-    secondaryLabel="Explore AidEM"
-    secondaryHref={PROTOTYPE_URL}
-    prevSibling="#header"
-    nextSibling="#features"
-    image={CtaImage}
-    imageAlt="Screenshot of a web application showing flood risk in the US. A detail panel shows how many structures are at risk in the selected county, and how risk is going to change over the next 16 hours."
-  />
-  <Features />
-  <Section
-    title="Use Cases"
-    style="bg-[#FDEBDE] dot-grid [--dot-grid-color:#D7C8BD]"
-  >
-    <Cards items={useCases} cardStyle="!bg-white" />
-  </Section>
+  <TryTheDemo />
+  <Capabilities />
   <Solutions />
 </Layout>

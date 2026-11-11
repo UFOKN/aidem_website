@@ -2,7 +2,7 @@
 
 AidEM is a research project building AI agents that predict how flood damage cascades across critical infrastructure such as power, water and transportation. U.S. Army Corps of Engineers (USACE) staff and emergency managers can ask questions in plain language and get impact timelines, failure sequences, risk assessments and mitigation options. This website introduces the project to partners and funders, presents the team and links to the interactive prototype, which will be demoed on December 8, 2026.
 
-The site started as a copy of the data2action.tech site and keeps its design. It has three pages: home (`index.astro`), team and contact. The designs live in the AidEM Figma file (page "Website", frames "AidEM / Home", "AidEM / Team", "AidEM / Contact"). Images, the favicon and the "Our Technology" section are still data2action's, and the AidEM wordmark is a text placeholder (`Wordmark.astro`).
+The site started as a copy of the data2action.tech site and keeps its design. Pages: home (`index.astro`), an alternative homepage with the map header (`home-alt.astro`, linked as "Home alt" in the menu for review and marked `noindex`), team and contact. The designs live in the AidEM Figma file on the "Website" page, in the frames named "AidEM / Home" (two: the main one and the alternative), "AidEM / Team" and "AidEM / Contact". Images, the favicon and the "Our Technology" section are still data2action's, and the AidEM wordmark is a text placeholder (`Wordmark.astro`).
 
 ## Commands
 

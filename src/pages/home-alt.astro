@@ -1,0 +1,24 @@
+---
+// Alternative homepage with the map header, for review. Not indexed.
+import Layout from "../layouts/Layout.astro";
+import MapHeader from "../components/MapHeader.astro";
+import TryTheDemo from "../components/TryTheDemo.astro";
+import Capabilities from "../components/Capabilities.astro";
+import Solutions from "../components/Solutions.astro";
+import { TAGLINE } from "../site";
+---
+
+<Layout
+  title={TAGLINE}
+  description="Transforming government hazard management from reactive and siloed to proactive and systems-aware."
+  callToActionAfter="#solutions"
+>
+  <meta slot="head" name="robots" content="noindex" />
+  <MapHeader
+    title={TAGLINE}
+    text="Transforming government hazard management from reactive and siloed to proactive and systems-aware."
+  />
+  <TryTheDemo />
+  <Capabilities />
+  <Solutions />
+</Layout>
