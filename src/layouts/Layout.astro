@@ -16,6 +16,8 @@ const {
   // Closing call to action above the footer; pass the selector of the
   // section before it (used for the overlap effect).
   callToActionAfter = null,
+  callToActionLabel = "Schedule a demo",
+  callToActionHref = "/contact",
 } = Astro.props;
 
 // Generate absolute image URL for Open Graph meta tag (shown when sharing on social media)
@@ -54,8 +56,8 @@ const ogImageUrl = new URL(
       {callToActionAfter && (
         <CallToAction
           text="See the agentic AI decision support system in action."
-          label="Schedule a demo"
-          href="/contact"
+          label={callToActionLabel}
+          href={callToActionHref}
           prevSibling={callToActionAfter}
           nextSibling="footer"
         />

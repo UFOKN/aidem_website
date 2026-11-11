@@ -3,13 +3,13 @@ import CallToAction from "./CallToAction.astro";
 import CtaImage from "../assets/content-images/flood-risk-cta.png";
 import { PROTOTYPE_URL } from "../site";
 
-const { prevSibling = "#header", nextSibling = "#capabilities" } = Astro.props;
+const { prevSibling = "#header", nextSibling = "#delivers" } = Astro.props;
 ---
 
 <CallToAction
   text="Try the demo"
-  description="Agentic decision support for flood-triggered compound hazard mitigation"
-  label="Try the demo"
+  description="Real-time compound hazard analysis and AI-supported response recommendations for emergency managers and researchers"
+  label="Launch demo"
   href={PROTOTYPE_URL}
   prevSibling={prevSibling}
   nextSibling={nextSibling}

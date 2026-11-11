@@ -2,9 +2,10 @@
 import Layout from "../layouts/Layout.astro";
 import MapHeader from "../components/MapHeader.astro";
 import TryTheDemo from "../components/TryTheDemo.astro";
+import Delivers from "../components/Delivers.astro";
 import Capabilities from "../components/Capabilities.astro";
 import Solutions from "../components/Solutions.astro";
-import { SITE_NAME, TAGLINE } from "../site";
+import { PROTOTYPE_URL, SITE_NAME, TAGLINE } from "../site";
 
 const statement =
   "We develop and scale an agentic AI decision support system for flood-triggered compound hazard mitigation.";
@@ -27,6 +28,8 @@ const jsonLd = {
   title={TAGLINE}
   description="Transforming government hazard management from reactive and siloed to proactive and systems-aware."
   callToActionAfter="#solutions"
+  callToActionLabel="Try the demo"
+  callToActionHref={PROTOTYPE_URL}
 >
   <Fragment slot="head">
     <script
@@ -40,6 +43,7 @@ const jsonLd = {
     text="Transforming government hazard management from reactive and siloed to proactive and systems-aware."
   />
   <TryTheDemo />
+  <Delivers />
   <Capabilities />
   <Solutions />
 </Layout>
