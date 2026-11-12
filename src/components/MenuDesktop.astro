@@ -1,4 +1,5 @@
 ---
+import { url } from "../site";
 // Hover behavior copied from data2action.tech: the hovered item turns white,
 // the others dim, and a dark gradient fades in behind the header.
 ---
@@ -6,13 +7,13 @@
 <div class="flex justify-center">
   <ul id="menu-ul">
     <li>
-      <a href="/">Home</a>
+      <a href={url("/")}>Home</a>
     </li>
     <li>
-      <a href="/about">About</a>
+      <a href={url("/about")}>About</a>
     </li>
     <li>
-      <a href="/contact">Get in touch</a>
+      <a href={url("/contact")}>Get in touch</a>
     </li>
   </ul>
 </div>

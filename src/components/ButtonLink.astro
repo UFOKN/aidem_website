@@ -1,10 +1,12 @@
 ---
 const { href = "#", label, showArrow = true, style = "" } = Astro.props;
+import { url } from "../site";
 const isExternalLink = href[0] !== "/";
+const linkHref = isExternalLink ? href : url(href);
 import ArrowIcon from "../assets/icons/arrow.svg";
 ---
 
-<a href={href} target={isExternalLink ? "_blank" : ""} class={style}>
+<a href={linkHref} target={isExternalLink ? "_blank" : ""} class={style}>
   {label}
   {showArrow && <ArrowIcon />}
 </a>

@@ -1,6 +1,6 @@
 ---
 import Wordmark from "./Wordmark.astro";
-import { PROTOTYPE_URL, TAGLINE } from "../site";
+import { PROTOTYPE_URL, TAGLINE, url } from "../site";
 ---
 
 <footer>
@@ -17,16 +17,16 @@ import { PROTOTYPE_URL, TAGLINE } from "../site";
         </a>
       </dd>
       <dd>
-        <a href="/contact">Schedule a demo</a>
+        <a href={url("/contact")}>Schedule a demo</a>
       </dd>
     </dl>
     <dl>
       <dt>About</dt>
       <dd>
-        <a href="/about">About</a>
+        <a href={url("/about")}>About</a>
       </dd>
       <dd>
-        <a href="/contact">Contact</a>
+        <a href={url("/contact")}>Contact</a>
       </dd>
     </dl>
   </div>

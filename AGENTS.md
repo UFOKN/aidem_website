@@ -8,20 +8,20 @@ The site started as a copy of the data2action.tech site and keeps its design. Pa
 
 Requires Node 22.12 or newer. Run everything through the scripts in `script/`, not `npm`, `npx` or `astro` directly. Each script installs dependencies first.
 
-| Command                 | What it does                                                    |
-| :---------------------- | :-------------------------------------------------------------- |
-| `script/update`         | Install dependencies                                            |
-| `script/server`         | Dev server at http://localhost:4321 (also on the local network) |
-| `script/build`          | Production build to `dist/`                                     |
-| `script/preview`        | Serve the production build locally                              |
-| `script/lint`           | Type-check `.astro`, `.svelte` and `.ts` files (`astro check`)  |
-| `script/format [paths]` | Format with Prettier; all files when no paths are given         |
+| Command                 | What it does                                                                   |
+| :---------------------- | :----------------------------------------------------------------------------- |
+| `script/update`         | Install dependencies                                                           |
+| `script/server`         | Dev server at http://localhost:4321/aidem_website/ (also on the local network) |
+| `script/build`          | Production build to `dist/`                                                    |
+| `script/preview`        | Serve the production build locally                                             |
+| `script/lint`           | Type-check `.astro`, `.svelte` and `.ts` files (`astro check`)                 |
+| `script/format [paths]` | Format with Prettier; all files when no paths are given                        |
 
 ## Checking your work
 
 Run `script/format` on changed files, then `script/lint` and `script/build`. Both must pass with no errors.
 
-For visual changes, look at the page in a browser. `.claude/launch.json` defines `aidem-dev`, which starts `script/server` on port 4321 for the Claude Code browser preview. Other agents can run `script/server` and open http://localhost:4321.
+For visual changes, look at the page in a browser. `.claude/launch.json` defines `aidem-dev`, which starts `script/server` on port 4321 for the Claude Code browser preview. Other agents can run `script/server` and open http://localhost:4321/aidem_website/.
 
 ## Docs
 
@@ -55,8 +55,9 @@ script/             Shell scripts for install, dev, build, preview, lint, format
 - Component `<style>` blocks start with `@reference "../styles/global.css";` so they can use `@apply` with the theme.
 - Put images in `src/assets` and render them with `Picture` or `Image` from `astro:assets` so they're resized and converted. Use `public/` only for files that must keep a fixed URL.
 - Svelte components are hydrated with `client:visible`. Anything that doesn't need client-side state stays an Astro component.
-- Redirects live in `astro.config.mjs`, which also sets `site` for the sitemap.
-- The contact form uses Netlify Forms (`data-netlify` attribute), so it only submits on a Netlify deploy.
+- The site is hosted on GitHub Pages under the `/aidem_website` base path (`base` in `astro.config.mjs`). Write internal links as `url("/about")` with `url` from `src/site.ts`; `ButtonLink` does this itself. Redirect targets in `astro.config.mjs` need the base too.
+- Every push to `main` deploys through `.github/workflows/deploy.yml`.
+- The contact form still uses Netlify Forms (`data-netlify` attribute), which doesn't work on GitHub Pages, so it doesn't submit anywhere yet.
 - The font is Hanken Grotesk (variable), self-hosted through `@fontsource-variable/hanken-grotesk`.
 - Links to the AidEM prototype use `PROTOTYPE_URL` from `src/site.ts`.
 - Format with `script/format` before committing. `.prettierrc` loads the Astro and Svelte plugins.

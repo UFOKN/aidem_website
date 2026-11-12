@@ -6,7 +6,7 @@ import FloodRiskImage from "../assets/content-images/flood-risk-card.jpg";
 import Navigation from "../components/Navigation.astro";
 import CallToAction from "../components/CallToAction.astro";
 import Footer from "../components/Footer.astro";
-import { SITE_NAME } from "../site";
+import { SITE_NAME, url } from "../site";
 import "../styles/global.css";
 
 const {
@@ -46,7 +46,7 @@ const ogImageUrl = new URL(
     />
     <slot name="head" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href={url("/favicon.svg")} />
     <meta charset="UTF-8" />
     <meta name="generator" content={Astro.generator} />
   </Head>

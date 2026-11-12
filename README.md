@@ -16,17 +16,19 @@ Site built with [Astro](https://astro.build). Relevant folders for content updat
 
 All commands are run from the root of the project, from a terminal:
 
-| Command             | Action                                           |
-| :------------------ | :----------------------------------------------- |
-| `./script/update`   | Installs dependencies                            |
-| `./script/server`   | Starts local dev server at `localhost:4321`      |
-| `./script/build`    | Build production site to `./dist/`               |
-| `./script/preview`  | Preview your build locally, before deploying     |
-| `npm run astro ...` | Run CLI commands like `astro add`, `astro check` |
+| Command             | Action                                                     |
+| :------------------ | :--------------------------------------------------------- |
+| `./script/update`   | Installs dependencies                                      |
+| `./script/server`   | Starts local dev server at `localhost:4321/aidem_website/` |
+| `./script/build`    | Build production site to `./dist/`                         |
+| `./script/preview`  | Preview your build locally, before deploying               |
+| `npm run astro ...` | Run CLI commands like `astro add`, `astro check`           |
 
 ## Deployment
 
-The site is deployed through Netlify. Commits to the `main` branch are deployed to production. Pull requests against `main` trigger a deploy preview (ie. staging URL) that can be accessed in Netlify.
+The site is hosted on GitHub Pages at https://ufokn.github.io/aidem_website/. Every push to `main` builds and deploys it through `.github/workflows/deploy.yml`. In the repository settings, Pages must use "GitHub Actions" as its source.
+
+Because the site lives under `/aidem_website`, the dev server runs at http://localhost:4321/aidem_website/.
 
 ## Typography
 

@@ -1,4 +1,5 @@
 ---
+import { url } from "../site";
 import Wordmark from "./Wordmark.astro";
 import BarsIcon from "../assets/icons/bars.svg";
 ---
@@ -13,13 +14,13 @@ import BarsIcon from "../assets/icons/bars.svg";
         <Wordmark class="text-black" />
       </li>
       <li class="mt-5">
-        <a href="/">Homepage</a>
+        <a href={url("/")}>Homepage</a>
       </li>
       <li>
-        <a href="/about">About</a>
+        <a href={url("/about")}>About</a>
       </li>
       <li>
-        <a href="/contact">Get in touch</a>
+        <a href={url("/contact")}>Get in touch</a>
       </li>
     </ul>
   </li>
