@@ -1,8 +1,8 @@
 # AidEM website
 
-AidEM is a research project building AI agents that predict how flood damage cascades across critical infrastructure such as power, water and transportation. U.S. Army Corps of Engineers (USACE) staff and emergency managers can ask questions in plain language and get impact timelines, failure sequences, risk assessments and mitigation options. This website introduces the project to partners and funders, presents the team and links to the interactive prototype, which will be demoed on December 8, 2026.
+AidEM is a research project building AI agents that predict how flood damage cascades across critical infrastructure such as power, water and transportation. U.S. Army Corps of Engineers (USACE) staff and emergency managers can ask questions in plain language and get impact timelines, failure sequences, risk assessments and mitigation options. This website introduces the project, presents the team and links to the prototype.
 
-The site started as a copy of the data2action.tech site and keeps its design. Pages: home (`index.astro`), about (`about.astro`, with the team) and contact. The designs live in the AidEM Figma file on the "Website" page, in the frames "AidEM / Home", "AidEM / About" and "AidEM / Contact". "AidEM / Home (previous header, Figma only)" is kept for reference and isn't built. Images, the favicon and the "Our Technology" section are still data2action's, and the AidEM wordmark is a text placeholder (`Wordmark.astro`).
+The site started as a copy of the data2action.tech site and keeps its design. Pages: home (`index.astro`), about (`about.astro`, with the team) and contact. The designs live in the AidEM Figma file on the "Website" page. The code follows the "(v2 suggestions)" frames; older frames there are out of date. Images and the "Our Technology" section are still data2action's, and the AidEM wordmark is a text placeholder (`Wordmark.astro`).
 
 ## Commands
 
@@ -43,14 +43,14 @@ src/
   assets/
     content-images/ Page images, processed by astro:assets
     icons/          SVG icons
-public/             Files served as-is (favicon)
+public/             Files served as-is (currently empty)
 script/             Shell scripts for install, dev, build, preview, lint, format
 ```
 
 ## Conventions
 
 - Stack: Astro 7 (static output), Svelte 5, Tailwind CSS 4 through `@tailwindcss/vite`. There is no `tailwind.config.js`; theme tokens and custom utilities (`grid-area-*`, `text-preset-xl`, `dot-grid`) are defined in `src/styles/global.css` with `@theme` and `@utility`.
-- Every page wraps its content in `Layout` and passes `title` and `description`. Optional props: `ogImage` (an imported image for social sharing) and `callToActionAfter` (selector of the last section; adds the "Schedule a demo" bar above the footer).
+- Every page wraps its content in `Layout` and passes `title` and `description`. Optional props: `ogImage` (an imported image for social sharing) and `callToActionAfter` (selector of the last section; adds the black call-to-action bar above the footer). `callToActionText`, `callToActionLabel` and `callToActionHref` set its text and button.
 - Page layout uses named grid areas: `Section` spans `grid-area-full` with a subgrid, and content inside it uses `grid-area-main` or `grid-area-text`.
 - Component `<style>` blocks start with `@reference "../styles/global.css";` so they can use `@apply` with the theme.
 - Put images in `src/assets` and render them with `Picture` or `Image` from `astro:assets` so they're resized and converted. Use `public/` only for files that must keep a fixed URL.

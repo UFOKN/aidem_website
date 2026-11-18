@@ -1,0 +1,29 @@
+---
+const { asset, disruption, x, y } = Astro.props;
+const position = `left: ${x}%; top: ${y}%;`;
+---
+
+{asset && disruption && (
+  <div class=`label-container` style={position}>
+    <div class="label">
+      <span>{asset}</span>
+      {disruption}
+    </div>
+  </div>
+)}
+
+<style>
+  @reference "../styles/global.css";
+
+  .label-container {
+    @apply z-3 absolute w-[8%] h-[8%] flex flex-col gap-2 items-center;
+  }
+
+  .label {
+    @apply text-[12px] sm:text-sm w-34 md:w-40 text-center leading-[120%] mt-[130%] font-[500] text-[#00000095];
+
+    span {
+      @apply uppercase block mb-0.5 tracking-wide text-black;
+    }
+  }
+</style>

@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import MapHeader from "../components/MapHeader.astro";
+import HomepageHeader from "../components/HomepageHeader.astro";
 import TryTheDemo from "../components/TryTheDemo.astro";
 import Delivers from "../components/Delivers.astro";
 import Capabilities from "../components/Capabilities.astro";
@@ -37,7 +37,7 @@ const jsonLd = {
       set:html={JSON.stringify(jsonLd)}
     />
   </Fragment>
-  <MapHeader
+  <HomepageHeader
     title={TAGLINE}
     text="We transform government response from reactive and siloed to proactive and collaborative."
   />
